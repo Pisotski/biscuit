@@ -6,22 +6,17 @@ import reduxState from '../redux/reducers';
 
 const loggerMiddleware = createLogger();
 
-export default function createReduxStore({ preloadedState, server } = {}, req) {
+export default function createReduxStore({ preloadedState, server } = {}) {
+  const axiosInstance = axios.create({
+    baseURL: `${process.env.CONNECTION}/api`,
+    // headers: { cookie: req.get('cookie') || ''},
+  });
   let enhancer;
-  let thunkProperties = thunkMiddleware;
-
-  if (req) {
-    const axiosInstance = axios.create({
-      baseURL: '/api',
-      headers: { cookie: req.get('cookie') || '' },
-    });
-    thunkProperties = thunkMiddleware.withExtraArgument(axiosInstance);
-  }
 
   if (process.env.NODE_ENV !== 'production' && !server) {
-    enhancer = applyMiddleware(thunkProperties, loggerMiddleware);
+    enhancer = applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance), loggerMiddleware);
   } else {
-    enhancer = applyMiddleware(thunkProperties);
+    enhancer = applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance));
   }
 
   return createStore(reduxState, preloadedState, enhancer);
