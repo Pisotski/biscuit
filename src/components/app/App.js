@@ -11,9 +11,10 @@ export default class App extends Component {
         <div className={styles.TopBar}>
           <Link className={styles.Link} to="/">Home</Link>
           <Link className={styles.Link} to="/about">About</Link>
+          <Link className={styles.Link} to="/Home2">Home2</Link>
         </div>
         {this.props.children}
-        <div className={styles.Footer}>William Woodhead - MIT License</div>
+        <div className={styles.Footer}>Biscuit Tracker</div>
       </div>
     );
   }

@@ -51,7 +51,4 @@ const dbConnection = async (sql) => {
   return res.rows[0];
 };
 
-// module.exports = {
-//   dbConnection,
-// };
 export default dbConnection;

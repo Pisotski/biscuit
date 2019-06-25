@@ -1,8 +1,9 @@
 import express from 'express';
-import dbConnection from '../utils/databaseConnection';
+import colors from 'colors';
+import dbConnection from '../database/index';
 
-const apis = express.Router();
-apis.get('/MainTable', async (req, res) => {
+const api = express.Router();
+api.get('/MainTable', async (req, res) => {
   try {
     const sql = `SELECT * FROM user_info WHERE id=${1}`;
     const response = await dbConnection(sql);
@@ -12,7 +13,7 @@ apis.get('/MainTable', async (req, res) => {
   }
 });
 
-apis.get('/Home', async (req, res) => {
+api.get('/Home', async (req, res) => {
   try {
     const sql = `SELECT * FROM user_info WHERE id=${1}`;
     const response = await dbConnection(sql);
@@ -22,4 +23,4 @@ apis.get('/Home', async (req, res) => {
   }
 });
 
-export default apis;
+export default api;
