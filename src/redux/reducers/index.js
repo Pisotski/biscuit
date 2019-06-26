@@ -1,19 +1,10 @@
-// import { combineReducers } from 'redux';
-// import home from './home';
-// import about from './about';
-
-// const reduxState = combineReducers({
-//   home,
-//   about
-// });
-
-// export default reduxState;
-
 import { combineReducers } from 'redux';
-import mainReducer from './mainTableReducer';
+import home from './home';
+import mainTableReducer from './mainTableReducer';
 import homeReducer from './homeReducer';
 
 export default combineReducers({
-  // mainTable: mainReducer,
+  MainTable: mainTableReducer,
+  homeOld: home,
   Home: homeReducer,
 });

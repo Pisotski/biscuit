@@ -5,6 +5,7 @@ import styles from './Home.scss';
 export default class Home extends Component {
   componentDidMount() {
     // only fetch data if it does not already exist
+    console.log(this.props.getData);
     if (!this.props.data) this.props.getData();
   }
 

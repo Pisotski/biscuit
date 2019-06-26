@@ -5,7 +5,7 @@ import { getHomeData } from '../redux/actions/home';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    data: state.home
+    data: state.homeOld
   };
 }
 

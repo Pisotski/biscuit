@@ -48,7 +48,7 @@ const dbConnection = async (sql) => {
   } catch (err) {
     console.error(`${err} DATABASE CONNECTION`);
   }
-  return res.rows[0];
+  return res.rows;
 };
 
 export default dbConnection;

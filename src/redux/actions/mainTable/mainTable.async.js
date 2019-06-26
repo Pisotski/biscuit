@@ -9,6 +9,7 @@ import {
 } from '../../constants/api';
 
 function handleErrors(response) {
+  console.log(response)
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -17,15 +18,11 @@ function handleErrors(response) {
 
 export function fetchMainTable() {
   return (dispatch) => {
-    console.log('actions here');
-
     dispatch(fetchMainTableBegin());
     return getCallApi(FETCH_MAIN_TABLE_API)
-      .then(handleErrors)
-      // .then(res => res.json())
-      .then((mainTable) => {
-        dispatch(fetchMainTableSuccess(mainTable));
-        return Promise.resolve(mainTable);
+      .then((mainTableData) => {
+        dispatch(fetchMainTableSuccess(mainTableData));
+        return Promise.resolve(mainTableData);
       })
       .catch((error) => {
         dispatch(fetchMainTableFailure(error));

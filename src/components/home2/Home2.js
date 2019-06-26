@@ -6,7 +6,6 @@ export default class Home2 extends Component {
   componentDidMount() {
     // only fetch data if it does not already exist
     const payload = this.props;
-    console.log(payload.Home);
     if (!payload.data) payload.Home;
   }
 

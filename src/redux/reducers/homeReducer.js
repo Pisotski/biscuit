@@ -33,8 +33,8 @@ export default function (state = intialState, action) {
       return {
         ...state,
         homeData: [],
-        error: action.payload.error,
         loading: false,
+        error: action.payload.error,
       };
     }
 

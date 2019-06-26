@@ -4,9 +4,9 @@ export const fetchMainTableBegin = () => ({
   type: FETCH_MAINTABLE_BEGIN,
 });
 
-export const fetchMainTableSuccess = mainTable => ({
+export const fetchMainTableSuccess = mainTableData => ({
   type: FETCH_MAINTABLE_SUCCESS,
-  payload: { mainTable },
+  payload: { mainTableData },
 });
 
 export const fetchMainTableFailure = error => ({

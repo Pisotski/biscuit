@@ -12,6 +12,7 @@ export default class App extends Component {
           <Link className={styles.Link} to="/">Home</Link>
           <Link className={styles.Link} to="/about">About</Link>
           <Link className={styles.Link} to="/Home2">Home2</Link>
+          <Link className={styles.Link} to="/MainTable">MainTable</Link>
         </div>
         {this.props.children}
         <div className={styles.Footer}>Biscuit Tracker</div>

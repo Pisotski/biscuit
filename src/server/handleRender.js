@@ -12,7 +12,7 @@ export default function handleRender(req, res) {
   const promises = [];
 
   // Create a new Redux store instance for every request
-  const store = createReduxStore({ server: true }, req);
+  const store = createReduxStore({ server: true });
 
   let matchedRoute;
   // use `some` to imitate `<Switch>` behavior of selecting only the first to match

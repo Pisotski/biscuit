@@ -1,28 +1,21 @@
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
-// import Home2 from '../components/home2';
-// import loadHomeData from '../redux/actions/home2/Home.asyncaction';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import MainTable from '../components/mainTable';
+import loadMainTableData from '../redux/actions/mainTable/mainTable.async';
 
-// // const mapStateToProps = (state, ownProps) => {
-// //   return {
-// //     data: state.home
-// //   };
-// // }
-// const mapStateToProps = state => ({
-//   Home: state.Home.data,
-//   loading: state.Home.loading,
-//   error: state.Home.error,
-// });
+const mapStateToProps = state => ({
+  MainTable: state.MainTable.mainTableData,
+  loading: state.MainTable.loading,
+  error: state.MainTable.error,
+});
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return bindActionCreators({
-//     getData: loadHomeData
-//   }, dispatch);
-// };
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return bindActionCreators({
+    getData: loadMainTableData
+  }, dispatch);
+};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Home2);
-
-export default () => 'mainTableEmptyContainer';
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainTable);
