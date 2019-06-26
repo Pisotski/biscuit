@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MainTable from '../components/mainTable';
-import loadMainTableData from '../redux/actions/mainTable/mainTable.async';
+import loadMainTableData from '../redux/actions/mainTable/MainTable.asyncaction';
 
 const mapStateToProps = state => ({
   MainTable: state.MainTable.mainTableData,

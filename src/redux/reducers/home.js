@@ -1,13 +1,46 @@
-import TYPE from '../types/home';
+import {
+  FETCH_HOME_FAILURE,
+  FETCH_HOME_BEGIN,
+  FETCH_HOME_SUCCESS,
+} from '../constants/types/home';
 
-export default function (state = null, action) {
+const intialState = {
+  homeData: [],
+  loading: false,
+  error: null,
+};
+
+export default function (state = intialState, action) {
   switch (action.type) {
-    case TYPE.RES_DATA: return resData(state, action);
-    default: return state;
-  }
-}
+    case FETCH_HOME_BEGIN: {
+      return {
+        ...state,
+        homeData: [],
+        loading: true,
+        error: null,
+      };
+    }
 
-function resData(state, action) {
-  const { data } = action;
-  return data;
+    case FETCH_HOME_SUCCESS: {
+      return {
+        ...state,
+        homeData: action.payload.homeData,
+        loading: false,
+      };
+    }
+
+    case FETCH_HOME_FAILURE: {
+      return {
+        ...state,
+        homeData: [],
+        loading: false,
+        error: action.payload.error,
+      };
+    }
+
+    default:
+      return {
+        ...state,
+      };
+  }
 }

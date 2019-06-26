@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 import styles from './MainTable.scss';
 
 export default class MainTable extends Component {
-  componentDidMount() {
-    // only fetch data if it does not already exist
-    const payload = this.props;
-    if (!payload.data) payload.MainTable;
+  // componentDidMount() {
+  //   // only fetch data if it does not already exist
+  //   const payload = this.props;
+  //   console.log(payload.MainTable)
+  //   if (!payload.data) payload.MainTable;
+  // }
+  async componentDidMount() {
+    await this.props.getData();
   }
 
   render() {
@@ -29,7 +33,6 @@ MainTable.propTypes = {
   data: PropTypes.shape({
     text: PropTypes.string
   }),
-  // getData: PropTypes.func.isRequired
 };
 
 MainTable.defaultProps = {

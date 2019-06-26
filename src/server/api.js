@@ -18,7 +18,7 @@ api.get('/Home', async (req, res) => {
   try {
     const sql = `SELECT * FROM user_info WHERE id=${1}`;
     const response = await dbConnection(sql);
-    res.send(response);
+    res.send(response[0]);
   } catch (err) {
     res.send(err);
   }

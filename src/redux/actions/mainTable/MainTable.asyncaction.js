@@ -2,24 +2,24 @@ import {
   fetchMainTableBegin,
   fetchMainTableSuccess,
   fetchMainTableFailure,
-} from './mainTable';
+} from './MainTable';
 import { getCallApi } from '../../../utils/asyncRequestHandler';
 import {
   FETCH_MAIN_TABLE_API,
 } from '../../constants/api';
 
-function handleErrors(response) {
-  console.log(response)
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}
+// function handleErrors(response) {
+//   console.log(response)
+//   if (!response.ok) {
+//     throw Error(response.statusText);
+//   }
+//   return response;
+// }
 
-export function fetchMainTable() {
+export default function (url = FETCH_MAIN_TABLE_API) {
   return (dispatch) => {
     dispatch(fetchMainTableBegin());
-    return getCallApi(FETCH_MAIN_TABLE_API)
+    return getCallApi(url)
       .then((mainTableData) => {
         dispatch(fetchMainTableSuccess(mainTableData));
         return Promise.resolve(mainTableData);
@@ -30,5 +30,3 @@ export function fetchMainTable() {
       });
   };
 }
-
-export default fetchMainTable;

@@ -2,14 +2,10 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import App from '../containers/App';
 import Home from '../containers/Home';
-import About from '../containers/About';
 import NotFound from '../containers/NotFound';
-import Home2 from '../containers/Home2';
 import MainTable from '../containers/Maintable';
-import { getHomeData } from '../redux/actions/home';
-import { getAboutData } from '../redux/actions/about';
-import loadHomeData from '../redux/actions/home2/Home.asyncaction';
-import loadMainTableData from '../redux/actions/mainTable/mainTable.async';
+import loadHomeData from '../redux/actions/home/Home.asyncaction';
+import loadMainTableData from '../redux/actions/mainTable/MainTable.asyncaction';
 
 // for more details see https://reacttraining.com/react-router/web/guides/server-rendering
 // specify routes with the async function required to fetch the data to render the route
@@ -18,16 +14,6 @@ export const routes = [{
   path: '/',
   exact: true,
   component: Home,
-  loadData: () => getHomeData()
-}, {
-  path: '/about',
-  exact: true,
-  component: About,
-  loadData: () => getAboutData()
-}, {
-  component: Home2,
-  path: '/Home2',
-  exact: true,
   loadData: () => loadHomeData(),
 }, {
   path: '/MainTable',

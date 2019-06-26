@@ -1,1 +1,1 @@
-export { default as getHomeData } from './getData';
+export { default as loadHomeData } from './Home.asyncaction';
