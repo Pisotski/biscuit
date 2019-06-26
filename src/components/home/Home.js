@@ -9,7 +9,6 @@ export default class Home extends Component {
   }
 
   render() {
-
     const { Home } = this.props;
 
     if (!Home) return 'Loading async data...';

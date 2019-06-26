@@ -1,10 +1,7 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 import axios from 'axios';
 import reduxState from '../redux/reducers';
-
-const loggerMiddleware = createLogger();
 
 export default function createReduxStore({ preloadedState, server } = {}) {
   const axiosInstance = axios.create({
@@ -14,7 +11,12 @@ export default function createReduxStore({ preloadedState, server } = {}) {
   let enhancer;
 
   if (process.env.NODE_ENV !== 'production' && !server) {
-    enhancer = applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance), loggerMiddleware);
+    const composeEnhancers = typeof window === 'object'
+    /* eslint-disable no-underscore-dangle */
+    && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+    /* eslint-enable no-underscore-dangle */
+    enhancer = composeEnhancers(applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance)));
   } else {
     enhancer = applyMiddleware(thunkMiddleware.withExtraArgument(axiosInstance));
   }

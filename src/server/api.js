@@ -1,6 +1,6 @@
 import express from 'express';
-import colors from 'colors';
 import dbConnection from '../database/index';
+import formatMainTable from '../utils/formatMainTableData';
 
 const api = express.Router();
 api.get('/MainTable', async (req, res) => {
@@ -8,7 +8,7 @@ api.get('/MainTable', async (req, res) => {
     // `SELECT * FROM time_period WHERE userid=${1}`;
     const sql = `SELECT x.* FROM public.time_period x WHERE userid =${1}`;
     const response = await dbConnection(sql);
-    res.send(response);
+    res.send(formatMainTable(response));
   } catch (err) {
     res.send(err);
   }
