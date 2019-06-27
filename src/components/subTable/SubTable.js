@@ -7,7 +7,6 @@ import 'react-table/react-table.css';
 
 export default class SubTable extends Component {
   async componentDidMount() {
-    console.log(this.props.SubTable);
     if (!this.props.SubTable.length) await this.props.getData();
   }
 
