@@ -26,7 +26,7 @@ export default class SubTable extends Component {
     if (!SubTable) return 'Loading async data...';
 
     return (
-      <div className={styles.SubTable}>
+      <div className={styles.SubTable} >
         <h2>Earnings</h2>
         <ReactTable
           data={this.props.SubTable}
