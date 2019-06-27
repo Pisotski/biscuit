@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
-
+import SubTable from '../../containers/Subtable';
 import styles from './MainTable.scss';
 import 'react-table/react-table.css';
 
@@ -48,6 +48,13 @@ export default class MainTable extends Component {
         <ReactTable
           data={MainTable}
           columns={columns}
+          SubComponent={row => {
+            return (
+              <div>
+                <SubTable />
+              </div>
+            )
+          }}
         />
       </div>
     );
