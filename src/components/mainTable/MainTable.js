@@ -6,15 +6,9 @@ import styles from './MainTable.scss';
 import 'react-table/react-table.css';
 
 export default class MainTable extends Component {
-  // componentDidMount() {
-  //   // only fetch data if it does not already exist
-  //   const payload = this.props;
-  //   console.log(payload.MainTable)
-  //   if (!payload.data) payload.MainTable;
-  // }
-  async componentDidMount() {
 
-    if (!this.props.MainTable) await this.props.getData();
+  async componentDidMount() {
+    if (!this.props.MainTable.length) await this.props.getData();
   }
 
   render() {

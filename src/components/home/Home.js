@@ -3,18 +3,17 @@ import React, { Component } from 'react';
 import styles from './Home.scss';
 
 export default class Home extends Component {
-
   async componentDidMount() {
-    await this.props.getData();
+    if (!this.props.Home.length) await this.props.getData();
   }
 
   render() {
     const { Home } = this.props;
-
+    const HomeObj = Home[0];
     if (!Home) return 'Loading async data...';
     const {
       id, email, username, avatar
-    } = Home;
+    } = HomeObj;
 
     return (
       <div className={styles.Home}>
