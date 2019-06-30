@@ -8,7 +8,7 @@ export default function renderFullPage(html, preloadedState) {
         ${process.env.NODE_ENV === 'production' ? '<link rel="stylesheet" type="text/css" href="/dist/main.style.css" />' : ''}
       </head>
       <body>
-        <div id="root">${html}</div>
+      <div id="root">${html}</div>
         <script>
           // WARNING: See the following for security issues around embedding JSON in HTML:
           // http://redux.js.org/recipes/ServerRendering.html#security-considerations

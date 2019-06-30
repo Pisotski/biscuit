@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
 
 config();
-
-export const FETCH_MAIN_TABLE_API = `${process.env.CONNECTION}/api/MainTable`;
-export const FETCH_HOME_API = `${process.env.CONNECTION}/api/Home`;
+const host = process.env.CONNECTION;
+export const FETCH_MAIN_TABLE_API = `${host}/api/MainTable`;
+export const FETCH_HOME_API = `${host}/api/Home`;
+export const FETCH_SUB_TABLE_API = `${host}/api/SubTable`;

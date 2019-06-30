@@ -1,6 +1,7 @@
 import Express from 'express';
 import handleRender from './handleRender';
 import api from './api';
+import 'colors';
 
 // this is a very simple express app designed only for the purpose of this repo
 const app = Express();
