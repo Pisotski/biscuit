@@ -21,6 +21,7 @@ export default function (url = FETCH_HOME_API) {
     dispatch(fetchHomeBegin());
     return getCallApi(url)
       .then((home) => {
+
         dispatch(fetchHomeSuccess(home));
         return Promise.resolve(home);
       })

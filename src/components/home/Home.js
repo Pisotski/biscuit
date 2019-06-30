@@ -3,14 +3,17 @@ import React, { Component } from 'react';
 import styles from './Home.scss';
 
 export default class Home extends Component {
+
   async componentDidMount() {
     if (!this.props.Home.length) await this.props.getData();
   }
 
   render() {
     const { Home } = this.props;
+    // console.log(this.props.getData());
+    if (Home === undefined || !Home.length) return 'Loading async data...';
+
     const HomeObj = Home[0];
-    if (!Home) return 'Loading async data...';
     const {
       id, email, username, avatar
     } = HomeObj;
@@ -44,12 +47,12 @@ export default class Home extends Component {
   }
 }
 
-Home.propTypes = {
-  data: PropTypes.shape({
-    text: PropTypes.string
-  }),
-};
+// Home.propTypes = {
+//   data: PropTypes.shape({
+//     text: PropTypes.string
+//   }),
+// };
 
-Home.defaultProps = {
-  data: null
-};
+// Home.defaultProps = {
+//   data: null
+// };

@@ -7,12 +7,11 @@ import 'react-table/react-table.css';
 
 export default class SubTable extends Component {
   async componentDidMount() {
-    console.log(this.props.SubTable);
-    if (!this.props.SubTable) await this.props.getData();
+    if (!this.props.SubTable.length) await this.props.getData();
   }
 
   render() {
-    const currentPeriod = this.props.SubTable.periodid;
+    // const currentPeriod = this.props.SubTable.periodid;
     const columns = [{
       Header: 'id',
       accessor: 'id' // String-based value accessors!
@@ -28,7 +27,6 @@ export default class SubTable extends Component {
 
     return (
       <div className={styles.SubTable}>
-        <h2>Earnings</h2>
         <ReactTable
           data={this.props.SubTable}
           columns={columns}
